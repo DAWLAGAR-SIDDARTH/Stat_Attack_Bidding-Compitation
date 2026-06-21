@@ -1,0 +1,101 @@
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+.header{
+    background:#0f172a;
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.main-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.top-status{
+margin-bottom:20px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logs{
+    margin:20px;
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    height:250px;
+    overflow-y:auto;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.team-item{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.team-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.team-btn{
+    background:#1e293b;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.team-btn.selected{
+    background:#2563eb;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.action-btn{
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    font-weight:bold;
+}
+
+.sold-btn{background:#d97706;}
+.correct-btn{background:#16a34a;}
+.wrong-btn{background:#dc2626;}
+
+.status-item{
+    margin-bottom:15px;
+    padding:12px;
+    background:#f8fafc;
+    border-radius:8px;
+}

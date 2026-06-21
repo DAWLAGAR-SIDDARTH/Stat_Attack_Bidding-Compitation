@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STAT AUCTION ADMIN</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#020617;
+    color:#e2e8f0;
+    padding:20px;
+    min-height:100vh;
+}
+
+.header{
+    background:rgba(15,23,42,0.95);
+    color:white;
+    padding:20px;
+    border-radius:16px;
+    font-size:32px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+.top-status{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(180px, 1fr));
+    gap:18px;
+    margin-bottom:20px;
+}
+
+.status-card{
+    background:rgba(15,23,42,0.9);
+    border:1px solid rgba(148,163,184,0.12);
+    border-radius:18px;
+    padding:18px;
+    min-height:120px;
+}
+
+.status-card h3{
+    font-size:14px;
+    color:#94a3b8;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.status-card p{
+    font-size:20px;
+    font-weight:700;
+    color:#f8fafc;
+}
+
+.main-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:rgba(15,23,42,0.95);
+    border:1px solid rgba(148,163,184,0.12);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.18);
+}
+
+.card h2{
+    margin-bottom:18px;
+    color:#e2e8f0;
+}
+
+input,
+select{
+    width:100%;
+    padding:14px;
+    margin-bottom:12px;
+    border:1px solid rgba(148,163,184,0.2);
+    border-radius:12px;
+    background:rgba(15,23,42,0.8);
+    color:#e2e8f0;
+}
+
+input::placeholder{
+    color:#94a3b8;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    border-radius:12px;
+    padding:14px;
+    font-weight:700;
+    transition:transform .15s ease, filter .15s ease;
+}
+
+button:hover{
+    transform:translateY(-1px);
+    filter:brightness(1.05);
+}
+
+.primary{
+    background:#2563eb;
+    color:white;
+    width:100%;
+}
+
+.team-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid rgba(148,163,184,0.12);
+}
+
+.team-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.team-btn{
+    background:#1f2937;
+    color:white;
+    padding:12px 18px;
+}
+
+.team-btn.selected{
+    background:#2563eb;
+}
+
+.action-btn{
+    width:100%;
+    margin-top:10px;
+    color:white;
+}
+
+.sold-btn{
+    background:#d97706;
+}
+
+.correct-btn{
+    background:#16a34a;
+}
+
+.wrong-btn{
+    background:#dc2626;
+}
+
+.challenge-btn{
+    background:#7c3aed;
+}
+
+.logs{
+    margin-top:20px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(148,163,184,0.12);
+    border-radius:18px;
+    padding:20px;
+    min-height:260px;
+    overflow-y:auto;
+    box-shadow:0 12px 35px rgba(0,0,0,0.2);
+}
+
+.log{
+    padding:12px 0;
+    border-bottom:1px solid rgba(148,163,184,0.12);
+    color:#cbd5e1;
+}
+
+.button-row{
+    display:grid;
+    gap:10px;
+    margin-bottom:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+📊 STAT AUCTION ADMIN
+</div>
+
+<div class="top-status">
+    <div class="status-card">
+        <h3>Category</h3>
+        <p id="currentCategory">-</p>
+    </div>
+    <div class="status-card">
+        <h3>Selected Team</h3>
+        <p id="selectedTeamStatus">-</p>
+    </div>
+    <div class="status-card">
+        <h3>Current Bid</h3>
+        <p id="currentBidStatus">-</p>
+    </div>
+    <div class="status-card">
+        <h3>Challenge Status</h3>
+        <p id="challengeStatus">Inactive</p>
+    </div>
+</div>
+
+<div class="main-grid">
+
+<div class="card">
+
+<h2>Team Management</h2>
+
+<div class="button-row">
+    <button
+    class="action-btn wrong-btn"
+    onclick="exportResults()">
+    📤 Export Results
+    </button>
+
+    <button
+    class="action-btn wrong-btn"
+    onclick="resetAuction()">
+    🗑 Reset Auction
+    </button>
+</div>
+
+<input
+id="teamName"
+placeholder="Team Name">
+
+<button
+class="primary"
+onclick="addTeam()">
+Add Team
+</button>
+
+<select id="category">
+<option>Central Tendency</option>
+<option>Measures of Dispersion</option>
+<option>Probability</option>
+<option>Graphs & Trends</option>
+<option>Tabular Analysis</option>
+<option>Permutations & Combinations</option>
+<option>Simple Maths</option>
+<option>Distribution Analysis</option>
+<option>Mysterious Category</option>
+</select>
+
+<button
+class="primary"
+onclick="updateCategory()">
+Update Category
+</button>
+
+<label for="selectedTeamPicker" style="display:block; margin-bottom:8px; color:#94a3b8;">Select a team to manage bids:</label>
+<select id="selectedTeamPicker"
+onchange="selectTeam(this.value)">
+    <option value="">Select Team</option>
+</select>
+
+<div id="teamList"></div>
+
+</div>
+
+<div class="card">
+
+<h2>Bidding Management</h2>
+
+<div
+id="teamButtons"
+class="team-buttons">
+</div>
+
+<input
+id="bidAmount"
+type="number"
+placeholder="Bid Amount">
+
+<div class="button-row">
+    <button
+    class="action-btn sold-btn"
+    onclick="sold()">
+    🔨 SOLD
+    </button>
+
+    <button
+    class="action-btn correct-btn"
+    onclick="correct()">
+    ✅ CORRECT
+    </button>
+
+    <button
+    class="action-btn wrong-btn"
+    onclick="wrong()">
+    ❌ WRONG
+    </button>
+</div>
+
+<h2>Challenge</h2>
+
+<select id="challenger">
+<option value="">
+Select Challenger
+</option>
+</select>
+
+<div class="button-row">
+    <button
+    class="action-btn challenge-btn"
+    onclick="challengeCorrect()">
+    🏆 Challenge Correct
+    </button>
+
+    <button
+    class="action-btn wrong-btn"
+    onclick="challengeWrong()">
+    ❌ Challenge Wrong
+    </button>
+</div>
+
+</div>
+
+</div>
+
+<div class="logs">
+
+<h2>Activity Logs</h2>
+
+<div id="logs"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
