@@ -1,0 +1,1 @@
+# Stat_Attack_Bidding-Compitation
