@@ -5,11 +5,11 @@
 const questionBank = {
     'Central Tendency': [
         'The mean of 8 numbers is 25.\nSeven of the numbers are: 15, 20, 22, 24, 26, 28, 30.\nFind the missing number.',
-        'Data: 12, 14, 16, 18, 20, 20, 22, 24, 26\nCalculate: Mean plus Median minus Mode.'
+        'Data: 12, 14, 16, 18, 20, 20, 22, 24, 26\nCalculate: Mean + Median - Mode.'
     ],
     'Measures of Dispersion': [
-        'Data: 5, 10, 15, 20, 25\nHint: Range = Max minus Min\nFind: Range plus Variance (use population variance)',
-        'Dataset A: 10, 20, 30, 40, 50\nDataset B: 18, 20, 22, 24, 26\nFind: Variance of A minus Variance of B'
+        'Data: 5, 10, 15, 20, 25\nHint: Range = Max - Min\nFind: Range + Variance (use population variance)',
+        'Dataset A: 10, 20, 30, 40, 50\nDataset B: 18, 20, 22, 24, 26\nFind: Variance of(A) - Variance of(B)'
     ],
     'Probability': [
         'A bag has 4 red, 3 blue and 3 green balls.\nOne ball is picked at random.\nMultiply the probability of picking a blue ball by 20.',
@@ -17,19 +17,19 @@ const questionBank = {
     ],
     'Graphs & Trends': [
         'A company\'s monthly sales are shown in the bar chart below.\nFind the average monthly increase.',
-        'Monthly production levels are shown in the line plot below.\nFind: Highest value minus Average value\n(Round to nearest integer)'
+        'Monthly production levels are shown in the line plot below.\nFind: Highest value - Average value\n(Round to nearest integer)'
     ],
     'Tabular Analysis': [
-        'Student marks are shown in the table below.\nFind: Highest mark  plus  Average marks',
-        'Monthly expenses are shown in the table below.\nFind: Total  minus  Food expense'
+        'Student marks are shown in the table below.\nFind: Highest mark  +  Average marks',
+        'Monthly expenses are shown in the table below.\nFind: Total  -  Food expense'
     ],
     'Permutations & Combinations': [
-        'How many different arrangements can be made\nusing the letters of the word  STATISTICS ?',
+        'How many different arrangements can be made\nusing the letters of the word  MEDIAN ?',
         'A team of 4 is chosen from 8 people.\nHow many different teams can be formed?'
     ],
     'Simple Maths': [
-        'Given that x squared minus 5x equals 84\nand x is greater than 0,\nfind the value of x.',
-        'Find the value of:\n( 18 squared  minus  12 squared )  divided by  6'
+        'Given that x^2 - 5x = 84\nand x is greater than 0,\nfind the value of x.',
+        'Find the value of:\n( 18^2  -  12^2 ) / 6'
     ],
     'Distribution Analysis': [
         'Data: 10, 12, 13, 15, 16, 18, 40\n\nCompare the Mean and Median of this data.\nIf Mean is greater than Median, answer is 1.\nIf Mean equals Median, answer is 2.\nIf Mean is less than Median, answer is 3.\n\nWhat is the answer?',
@@ -37,7 +37,7 @@ const questionBank = {
     ],
     'Mysterious Category': [
         'Find the next number in this sequence:\n2,  6,  12,  20,  30,  42,  ?',
-        'Sequence: 1,  4,  9,  16,  25,  ?\nFind: Next term plus Previous term'
+        'Sequence: 1,  4,  9,  16,  25,  ?\nFind: Next term + Previous term'
     ]
 };
 
